@@ -43,7 +43,9 @@ class DragTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        datas.exchangeObjectAtIndex(sourceIndexPath.row, withObjectAtIndex: destinationIndexPath.row)
+        let data = datas.objectAtIndex(sourceIndexPath.row)
+        datas.removeObjectAtIndex(sourceIndexPath.row)
+        datas.insertObject(data, atIndex: destinationIndexPath.row)
     }
     
     // MARK: - UITableViewDelegate
